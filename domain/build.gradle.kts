@@ -1,4 +1,3 @@
-
 plugins {
     id("org.jetbrains.kotlin.kapt")
     alias(libs.plugins.kotlin.jvm)

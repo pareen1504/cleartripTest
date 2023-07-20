@@ -70,7 +70,7 @@ androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version
 espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }
 appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "androidx-appcompat-appcompat" }
 material = { group = "com.google.android.material", name = "material", version.ref = "com-google-android-material-material" }
-coil = { group = "io.coil-kt", name = "coil-compose", version.ref = "coilVersion"}
+coil = { group = "io.coil-kt", name = "coil-compose", version.ref = "coilVersion" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "androidGradlePlugin" }

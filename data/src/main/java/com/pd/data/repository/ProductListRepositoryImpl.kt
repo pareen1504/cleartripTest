@@ -1,8 +1,6 @@
 package com.pd.data.repository
 
 import com.pd.data.api.ProductListApi
-import com.pd.data.dto.ProductsDTO
-import com.pd.data.mapper.ProductItemDTOToProductItemMapper
 import com.pd.data.mapper.ProductsDTOToProductMapper
 import com.pd.domain.entity.Products
 import com.pd.domain.repository.ProductListRepository

@@ -8,6 +8,6 @@ data class ViewState(
     val error: String? = null
 ) {
     companion object {
-         fun initialState() = ViewState()
+        fun initialState() = ViewState()
     }
 }
