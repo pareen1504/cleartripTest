@@ -1,10 +1,10 @@
 package com.pd.testfeature.di
 
-import com.pd.domain.usecase.GetAllProductsUseCase
+import com.pd.domain.di.DomainModule
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 
-@Module(includes = [GetAllProductsUseCase::class])
+@Module(includes = [DomainModule::class])
 @InstallIn(SingletonComponent::class)
 abstract class ProductListModule

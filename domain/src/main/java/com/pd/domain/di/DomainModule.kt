@@ -14,5 +14,5 @@ abstract class DomainModule {
 
     @Binds
     @Singleton
-    abstract fun bindsGetAllProductsUseCase(getAllProductsUseCaseImpl: GetAllProductsUseCaseImpl): GetAllProductsUseCase
+    internal abstract fun bindsGetAllProductsUseCase(getAllProductsUseCaseImpl: GetAllProductsUseCaseImpl): GetAllProductsUseCase
 }

@@ -9,7 +9,9 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -26,11 +28,19 @@ class ProductListViewModel @Inject constructor(
     }
 
     private fun getAllProducts() {
+        _viewState.update { oldValue -> oldValue.copy(loading = true) }
         viewModelScope.launch {
             getAllProductsUseCase.execute().onEach {
-
+                _viewState.update { oldValue ->
+                    oldValue.copy(products = it)
+                }
             }.catch {
-
+                _viewState.update { oldValue ->
+                    oldValue.copy(
+                        error = it.message,
+                        products = null
+                    )
+                }
             }.launchIn(viewModelScope)
         }
     }

@@ -1,17 +1,16 @@
 package com.pd.domain.usecase.impl
 
-import com.pd.domain.entity.Products
 import com.pd.domain.repository.ProductListRepository
 import com.pd.domain.usecase.GetAllProductsUseCase
-import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.flow
-import java.lang.IllegalArgumentException
+import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 
 class GetAllProductsUseCaseImpl @Inject constructor(
     private val productListRepository: ProductListRepository
 ) : GetAllProductsUseCase {
-    override suspend fun execute(): Flow<Products> = flow {
+    override suspend fun execute() = flow {
         productListRepository.getProducts().fold(
             onSuccess = { products ->
                 emit(products)
@@ -20,5 +19,5 @@ class GetAllProductsUseCaseImpl @Inject constructor(
                 throw IllegalArgumentException(it.message)
             }
         )
-    }
+    }.flowOn(Dispatchers.IO)
 }

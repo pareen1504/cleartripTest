@@ -13,7 +13,7 @@ data class ProductsDTO(
     @Json(name = "skip")
     val skip: Int = 0,
     @Json(name = "products")
-    val productsItems: List<ProductsItemDTO>?
+    val productsItems: List<ProductsItemDTO>? = null
 ) {
     @JsonClass(generateAdapter = true)
     data class ProductsItemDTO(
